@@ -33,10 +33,10 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane-contrib/provider-jet-archive/apis"
-	"github.com/crossplane-contrib/provider-jet-archive/config"
-	"github.com/crossplane-contrib/provider-jet-archive/internal/clients"
-	"github.com/crossplane-contrib/provider-jet-archive/internal/controller"
+	"github.com/Piotr1215/provider-jet-archive/apis"
+	"github.com/Piotr1215/provider-jet-archive/config"
+	"github.com/Piotr1215/provider-jet-archive/internal/clients"
+	"github.com/Piotr1215/provider-jet-archive/internal/controller"
 )
 
 func main() {

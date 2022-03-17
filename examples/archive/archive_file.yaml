@@ -1,0 +1,13 @@
+apiVersion: archive.archive.jet.crossplane.io/v1alpha1
+kind: File
+metadata:
+  name: hello-crossplane
+spec:
+  forProvider:
+    source:
+      - content: "/home/decoder/dev/crossplane/CONTRIBUTING.md"
+        filename: "/home/decoder/dev/crossplane/CONTRIBUTING.md"
+    type: "zip"
+    outputPath: "~/costam.zip"
+  providerConfigRef:
+    name: default

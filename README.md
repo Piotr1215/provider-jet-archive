@@ -8,7 +8,7 @@ Archive API.
 ## Getting Started
 
 Install the provider by using the following command after changing the image tag
-to the [latest release](https://github.com/crossplane-contrib/provider-jet-archive/releases):
+to the [latest release](https://github.com/Piotr1215/provider-jet-archive/releases):
 ```
 kubectl crossplane install provider crossplane/provider-jet-archive:v0.1.0
 ```
@@ -55,7 +55,7 @@ make build
 ## Report a Bug
 
 For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/crossplane-contrib/provider-jet-archive/issues).
+open an [issue](https://github.com/Piotr1215/provider-jet-archive/issues).
 
 ## Contact
 

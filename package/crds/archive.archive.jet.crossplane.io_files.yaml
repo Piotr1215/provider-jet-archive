@@ -5,18 +5,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resources.null.archive.jet.crossplane.io
+  name: files.archive.archive.jet.crossplane.io
 spec:
-  group: null.archive.jet.crossplane.io
+  group: archive.archive.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - archivejet
-    kind: Resource
-    listKind: ResourceList
-    plural: resources
-    singular: resource
+    kind: File
+    listKind: FileList
+    plural: files
+    singular: file
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Resource is the Schema for the Resources API
+        description: File is the Schema for the Files API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourceSpec defines the desired state of Resource
+            description: FileSpec defines the desired state of File
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,13 +63,39 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  triggers:
-                    additionalProperties:
+                  excludes:
+                    items:
                       type: string
-                    description: A map of arbitrary strings that, when changed, will
-                      force the null resource to be replaced, re-running any associated
-                      provisioners.
-                    type: object
+                    type: array
+                  outputFileMode:
+                    type: string
+                  outputPath:
+                    type: string
+                  source:
+                    items:
+                      properties:
+                        content:
+                          type: string
+                        filename:
+                          type: string
+                      required:
+                      - content
+                      - filename
+                      type: object
+                    type: array
+                  sourceContent:
+                    type: string
+                  sourceContentFilename:
+                    type: string
+                  sourceDir:
+                    type: string
+                  sourceFile:
+                    type: string
+                  type:
+                    type: string
+                required:
+                - outputPath
+                - type
                 type: object
               providerConfigRef:
                 default:
@@ -116,12 +142,20 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResourceStatus defines the observed state of Resource.
+            description: FileStatus defines the observed state of File.
             properties:
               atProvider:
                 properties:
                   id:
                     type: string
+                  outputBase64Sha256:
+                    type: string
+                  outputMd5:
+                    type: string
+                  outputSha:
+                    type: string
+                  outputSize:
+                    type: number
                 type: object
               conditions:
                 description: Conditions of the resource.

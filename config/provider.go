@@ -22,11 +22,13 @@ import (
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+
+	"github.com/Piotr1215/provider-jet-archive/config/archive"
 )
 
 const (
 	resourcePrefix = "archive"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-archive"
+	modulePath     = "github.com/Piotr1215/provider-jet-archive"
 )
 
 //go:embed schema.json
@@ -42,10 +44,13 @@ func GetProvider() *tjconfig.Provider {
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn),
+		tjconfig.WithIncludeList([]string{
+			"archive_file$",
+		}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
-		// add custom config functions
+		archive.Configure,
 	} {
 		configure(pc)
 	}

@@ -1,4 +1,4 @@
-module github.com/crossplane-contrib/provider-jet-archive
+module github.com/Piotr1215/provider-jet-archive
 
 go 1.17
 
