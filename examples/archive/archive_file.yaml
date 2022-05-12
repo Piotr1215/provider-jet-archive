@@ -8,6 +8,6 @@ spec:
       - content: "/home/decoder/dev/crossplane/CONTRIBUTING.md"
         filename: "/home/decoder/dev/crossplane/CONTRIBUTING.md"
     type: "zip"
-    outputPath: "~/costam.zip"
+    outputPath: "/home/decoder/costam1.zip"
   providerConfigRef:
     name: default
